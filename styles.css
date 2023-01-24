@@ -9,14 +9,15 @@
 body{
     min-height: 100vh;
     background: #15151c;
-    display: flex;
+    /* display: flex;
     justify-content: center;
-    align-items: center;
+    align-items: center; */
 }
 
 .cursor{
     z-index: 99999;
-    position: relative;
+    /* position: relative; */
+    position: fixed;
 }
 
 .cursor .click-animation{
@@ -28,7 +29,7 @@ body{
 
 .cursor .click-animation .shape{
     position: absolute;
-    /* opacity: 0; */
+    opacity: 0;
 }
 
 .cursor .click-animation .shape.circle.big{
@@ -45,7 +46,7 @@ body{
     border-radius: 50%;
 }
 
-.cursor .click-animation .shape.circle{
+.cursor.active .click-animation .shape.circle{
     animation: click-animation-circle 3s ease-out infinite;
 }
 
@@ -66,6 +67,9 @@ body{
     border-style: solid;
     border-width: 0 5px 10px 5px;
     border-color: transparent transparent #f9de2d transparent;
+}
+
+.cursor.active .click-animation .shape.triangle.yellow{
     animation: click-animation-triangle-yellow 3s ease-out infinite;
 }
 
@@ -78,8 +82,73 @@ body{
     }
     40%{
         opacity: 0;
-        transform: scale(2.5) translate(50px, -50px);
+        transform: scale(2.5) translate(50px, -50px) rotate(360deg);
     }
-
 }
 
+.cursor .click-animation .shape.triangle.green{
+    border-style: solid;
+    border-width: 0 3.5px 7px 3.5px;
+    border-color: transparent transparent #47eda0 transparent;
+}
+
+.cursor.active .click-animation .shape.triangle.green{
+    animation: click-animation-triangle-green 3s ease-out infinite;
+}
+
+@keyframes click-animation-triangle-green{
+    0%{
+        opacity: 0;
+    }
+    5%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+        transform: scale(2.5) translate(20px, 50px) rotate(360deg);
+    }
+}
+
+.cursor .click-animation .shape.disc{
+    width: 8.5px;
+    height: 8.5px;
+    background: #d563f8;
+    border-radius: 50%;
+    /* animation: click-animation-disc 3s ease-out infinite; */
+}
+
+.cursor.active .click-animation .shape.disc{
+        animation: click-animation-disc 3s ease-out infinite;
+}
+
+@keyframes click-animation-disc{
+    0%{
+        opacity: 0;
+    }
+    5%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+        transform: scale(2) translate(-70px, -30px);
+    }
+}
+
+section{
+    color: #fff;
+    min-height: 100vh;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+    flex-direction: column;
+    padding: 0 200px;
+}
+
+.home h1{
+    font-size: 2.5em;
+    margin-bottom: 10px;
+}
+
+.home p{
+    font-size: 1em;
+}
