@@ -1,0 +1,85 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body{
+    min-height: 100vh;
+    background: #15151c;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cursor{
+    z-index: 99999;
+    position: relative;
+}
+
+.cursor .click-animation{
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.cursor .click-animation .shape{
+    position: absolute;
+    /* opacity: 0; */
+}
+
+.cursor .click-animation .shape.circle.big{
+    width: 40px;
+    height: 40px;
+    border: 2px solid #4fb4fa;
+    border-radius: 50%;
+}
+
+.cursor .click-animation .shape.circle.small{
+    width: 20px;
+    height: 20px;
+    border: 1px solid #2ca8fa;
+    border-radius: 50%;
+}
+
+.cursor .click-animation .shape.circle{
+    animation: click-animation-circle 3s ease-out infinite;
+}
+
+@keyframes click-animation-circle {
+    0%{
+        opacity: 0;
+    }
+    5%{
+        opacity: 1;
+    }
+    30%{
+        opacity: 0;
+        transform: scale(3);
+    }
+}
+
+.cursor .click-animation .shape.triangle.yellow{
+    border-style: solid;
+    border-width: 0 5px 10px 5px;
+    border-color: transparent transparent #f9de2d transparent;
+    animation: click-animation-triangle-yellow 3s ease-out infinite;
+}
+
+@keyframes click-animation-triangle-yellow{
+    0%{
+        opacity: 0;
+    }
+    5%{
+        opacity: 1;
+    }
+    40%{
+        opacity: 0;
+        transform: scale(2.5) translate(50px, -50px);
+    }
+
+}
+
